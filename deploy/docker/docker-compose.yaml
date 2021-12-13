@@ -1,0 +1,16 @@
+version: 3.8
+services:
+  mongodb:
+    container_name: "BlogDB"
+    image: "mongo:4.0"
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "rootpass"
+      MONGO_NAME: "blog"
+      MONGO_USER: "Muser"
+      MONGO_PASS: "1234567"
+      MONGO_AUTH: "SCRAM-SHA-256"
+    volumes:
+      - "./mongoinit:/docker-entrypoint-initdb.d"
